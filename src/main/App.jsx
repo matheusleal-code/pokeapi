@@ -9,17 +9,28 @@ function App() {
 
   const [pokemons, setPokemons] = useState([])
   const [search, setSearch] = useState('')
+  const [more, setMore] = useState(20)
+  const [isMore, setIsMore] = useState(true)
 
   useEffect(() => {
     refresh()
-  }, [])
+  }, [more])
+
+  function loadMore() {
+    if (more > 1120) {
+      setIsMore(false)
+    } else {
+      setMore(more + 40)
+    }
+
+  }
 
   function handleChangeSearch(e) {
     setSearch(e)
   }
 
   function refresh() {
-    api.get().then(resp => setPokemons(resp.data.results))
+    api.get("?offset=0&limit=" + more).then(resp => setPokemons(resp.data.results))
   }
 
   const loadPokemons = () => {
@@ -44,7 +55,7 @@ function App() {
           </div>
         </section>
         <div className={styles.more}>
-          <button>Carregar Mais</button>
+          {isMore ? <button onClick={() => loadMore()}>Carregar Mais</button> : ""}
         </div>
       </main>
 
