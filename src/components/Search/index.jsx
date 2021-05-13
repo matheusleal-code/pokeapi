@@ -9,7 +9,7 @@ function Search(props) {
         <div className={styles.searchForm}>
           <div className={styles.searchGroup}>
             <label htmlFor="search" className={styles.srOnly}>Pesquisar</label>
-            <input value={props.search} type="text" onChange={(e) => props.setSearch(e.target.value)} placeholder="Pesquisar Pokémon pelo nome" />
+            <input value={props.search} type="text" onChange={(e) => props.setSearch(e.target.value)} placeholder="Dígite o nome do Pokémon" />
             <button><IoMdSearch className={styles.icon} /></button>
           </div>
         </div>
