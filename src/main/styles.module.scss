@@ -1,0 +1,40 @@
+.container {
+  #pokemonsList {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    .list {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      margin-bottom: 2rem;
+      @media screen and (max-width: 1200px) {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      @media screen and (max-width: 720px) {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  .more {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    button {
+      padding: 0.4rem;
+      border-radius: 0.4rem;
+      border: none;
+      color: white;
+      background-color: var(--color-blue);
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-blue-dark);
+      }
+    }
+  }
+}

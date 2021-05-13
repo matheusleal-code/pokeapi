@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+:root {
+  --color-blue: rgb(70, 115, 182);
+  --color-blue-dark: rgb(39, 86, 157);
+  --color-red: rgb(252, 13, 13);
+}
