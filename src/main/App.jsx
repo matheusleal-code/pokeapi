@@ -13,6 +13,9 @@ function App() {
   const [isMore, setIsMore] = useState(true)
 
   useEffect(() => {
+    function refresh() {
+      api.get("?offset=0&limit=" + more).then(resp => setPokemons(resp.data.results))
+    }
     refresh()
   }, [more])
 
@@ -22,15 +25,10 @@ function App() {
     } else {
       setMore(more + 40)
     }
-
   }
 
   function handleChangeSearch(e) {
     setSearch(e)
-  }
-
-  function refresh() {
-    api.get("?offset=0&limit=" + more).then(resp => setPokemons(resp.data.results))
   }
 
   const loadPokemons = () => {
