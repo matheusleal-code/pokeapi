@@ -12,6 +12,13 @@
   perspective: 1000px;
 
   text-align: center;
+
+  @media screen and (max-width: 720px) {
+    width: 150px;
+    height: 250px;
+    margin: 0.2rem;
+  }
+
   &:hover .flipper {
     transform: rotateY(180deg);
   }
@@ -36,6 +43,11 @@
 
       img {
         width: 200px;
+
+        @media screen and (max-width: 720px) {
+          width: 150px;
+          height: 500px;
+        }
       }
 
       p {
