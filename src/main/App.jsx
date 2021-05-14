@@ -38,7 +38,7 @@ function App() {
       <main>
         <section id={styles.pokemonsList}>
           <div className={styles.list}>
-            {pokemons.length > 1 ? loadPokemons() : <p>Menor</p>}
+            {loadPokemons()}
           </div>
         </section>
         <div className={styles.more}>
