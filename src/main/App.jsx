@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Pokemon from '../components/Pokemon';
-import Search from '../components/Search';
 import api from '../services/api';
 import styles from './styles.module.scss'
 
 function App() {
 
   const [pokemons, setPokemons] = useState([])
-  const [search, setSearch] = useState('')
   const [more, setMore] = useState(20)
   const [isMore, setIsMore] = useState(true)
 
@@ -27,10 +25,6 @@ function App() {
     }
   }
 
-  function handleChangeSearch(e) {
-    setSearch(e)
-  }
-
   const loadPokemons = () => {
     return pokemons.map(pokemon => {
       return <Pokemon key={pokemon.name} name={pokemon.name} />
@@ -42,21 +36,15 @@ function App() {
       <Header title="PokéApi" />
 
       <main>
-
-        <section>
-          <Search setSearch={handleChangeSearch} search={search} />
-        </section>
-
         <section id={styles.pokemonsList}>
           <div className={styles.list}>
-            {loadPokemons()}
+            {pokemons.length > 1 ? loadPokemons() : <p>Menor</p>}
           </div>
         </section>
         <div className={styles.more}>
           {isMore ? <button onClick={() => loadMore()}>Carregar Mais</button> : ""}
         </div>
       </main>
-
     </div>
   );
 }
